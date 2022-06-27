@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
-    <LangVersion>latest</LangVersion>
     <AnalysisMode>Default</AnalysisMode>
     <UserSecretsId>b0a6fd3c-0b1f-4ed1-9773-f1c1cc4b09d5</UserSecretsId>
   </PropertyGroup>

@@ -21,6 +21,15 @@ namespace DynamoDb.ConsoleApp.DependencyInjection
             services.AddDefaultAWSOptions(configuration.GetAWSOptions());
             services.AddAWSService<IAmazonDynamoDB>();
 
+            services.AddSingleton<IAmazonDynamoDB>(sp =>
+            {
+                var clientConfig = new AmazonDynamoDBConfig
+                {
+                    ServiceURL = configuration.GetSection("DynamoDb").GetValue<string>("LocalServiceUrl")
+                };
+                return new AmazonDynamoDBClient(clientConfig);
+            });
+
             // Add repositories
             services.AddSingleton<IEntityRepository<BookEntity>, EntityRepository<BookEntity>>();
             services.AddSingleton<ITableRepository, TableRepository>();
